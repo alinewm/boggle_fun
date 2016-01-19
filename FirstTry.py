@@ -7,6 +7,7 @@ import BoggleSolver as bs
 # now that we have the solutions generator, we have to store the typed answers somewhere
 # and check the typed up answer if it's valid
 # also, make scores rule and tracker
+# show cumulative score
  
 def main():
     pygame.init()

@@ -4,6 +4,7 @@ import random
 #TO-DO:: regex matching not working so well so commented it out, fix it
 
 class BoggleSolver():
+    
     def __init__(self, sample):
         self.sample = [letter.lower() for letter in sample]
         # self.alphabet = ''.join(self.sample)
@@ -44,7 +45,9 @@ class BoggleSolver():
             for ny in range(max(0, y-1), min(y+2, self.nrows)):
                 yield (nx, ny)
 
-# alphabet = [chr(i) for i in range(ord('A'), ord('Z')+1)]
-# sample = random.sample(alphabet, 16)
-# solver = BoggleSolver(sample)
-# print [word[0] for word in solver.solve()]
+if __name__ == "__main__": # when it runs as script, for testing
+    alphabet = [chr(i) for i in range(ord('A'), ord('Z')+1)]
+    sample = random.sample(alphabet, 16)
+    solver = BoggleSolver(sample)
+    print 'random sample: ', sample
+    print 'solutions: ', [word[0] for word in solver.solve()]

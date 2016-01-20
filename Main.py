@@ -12,6 +12,20 @@ def main():
     WHITE = 255, 255, 255
 
     screen = pygame.display.set_mode(size)
+
+    end_it = False
+    while (end_it==False):
+        screen.fill(BLACK)
+        myfont=pygame.font.SysFont("Britannic Bold", 30)
+        nlabel=myfont.render("Welcome to Boggle Boggle", 1, (255, 0, 0))
+        instructions = myfont.render("Click to play", 1, (255, 0, 0))
+        for event in pygame.event.get():
+            if event.type==pygame.MOUSEBUTTONDOWN:
+                end_it=True
+        screen.blit(nlabel,(0,100))
+        screen.blit(instructions,(0,200))
+        pygame.display.flip()
+
     # LETTER_FONT = pygame.font.SysFont("monospace", 20)
     txtbx = eztext.Input(x=0, y=0, maxlength=45, color=(255,0,0), prompt='type here: ')
     # create the pygame clock
@@ -35,7 +49,7 @@ def main():
             # if event.key == K_RETURN in event:
             #     screen.fill(0,0,0)
         if time == 0:
-            screen.fill(BLACK)
+            screen.fill(BLACK) # doesn't actually break the loop
         else:
             # clear screen
             screen.fill(BLACK)

@@ -12,15 +12,16 @@ class Game():
         self.sample = []
         self.answers = []
         self.entries = []
-        self.score = []
+        self.score = 0
 
     def pick_letters(self):
         alphabet = [chr(i) for i in range(ord('A'), ord('Z')+1)]
         self.sample = random.sample(alphabet, 16)
+        self._generate_answers()
         # return self.sample
 
-    def generate_answers(self):
-        solver = bs.BoggleSolver(sample)
+    def _generate_answers(self):
+        solver = bs.BoggleSolver(self.sample)
         self.answers = [word[0] for word in solver.solve()]
 
     def is_valid(self, word): # make it more descriptive and show why it's not valid
